@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input } from '@angular/core';
+import { HousingLocation } from '../housing-location';
 
 @Component({
   // what the tag name should be
@@ -9,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./housing-listing.component.css']
 })
 export class HousingListingComponent implements OnInit {
+
+  @Input () locationList: HousingLocation [] = [];
 
   constructor() { }
 
