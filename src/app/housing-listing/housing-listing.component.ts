@@ -12,6 +12,7 @@ import { HousingLocation } from '../housing-location';
 export class HousingListingComponent implements OnInit {
 
   @Input () locationList: HousingLocation [] = [];
+  results: HousingLocation[] = [];
 //this is a comment
   constructor() { }
 

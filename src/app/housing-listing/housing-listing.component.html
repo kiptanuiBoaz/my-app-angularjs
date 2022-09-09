@@ -1,3 +1,7 @@
 <label for ="location-search">Search for new place</label>
 <input id="location-search" #search placeholder="Ex: Chicago" />
 <button (click)="searchHousingLocations(search.value)">search</button>
+<!-- template syntax -->
+<article *ngFor="let location of locationList">
+    <p>{{location.name}}</p>
+</article>
