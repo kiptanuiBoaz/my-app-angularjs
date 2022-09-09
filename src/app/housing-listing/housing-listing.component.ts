@@ -1,4 +1,5 @@
-import { Component, OnInit , Input } from '@angular/core';
+import { Component, OnInit , Input, Output } from '@angular/core';
+import { EventEmitter } from 'stream';
 import { HousingLocation } from '../housing-location';
 
 @Component({
@@ -13,6 +14,7 @@ export class HousingListingComponent implements OnInit {
 
   @Input () locationList: HousingLocation [] = [];
   results: HousingLocation[] = [];
+  @Output () selectedLocationEvent = new EventEmitter<HousingLocation>();
 //this is a comment
   constructor() { }
 
@@ -21,7 +23,9 @@ export class HousingListingComponent implements OnInit {
 
   // function to hanle the searching and passing the search value and doing typechecking in the procss
   searchHousingLocations(searchText: string): void {
-    console.log(searchText);
+    if(!searchText) return;
+    this.results=this.locationList.filter(location => location.city.toLowerCase().includes(searchText.toLowerCase()))
+   
   }
 
 }
